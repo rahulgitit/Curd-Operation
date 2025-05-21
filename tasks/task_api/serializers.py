@@ -6,7 +6,9 @@ from django.contrib.auth import authenticate
 class TaskSerializer(serializers.ModelSerializer):
     title = serializers.CharField(required=True, error_messages={"required": "title is required."})
     description = serializers.CharField(required=True, error_messages={"required": "desicription is required."})
-    conplete = serializers.CharField(required=True, error_messages={"required": "True and false is required."})
+    # conplete = serializers.CharField(required=True, error_messages={"required": "True and false is required."})
+    # user = serializers.CharField(required=True, error_messages={"required": "user is required."})
+
 
     # password = serializers.CharField(
     #     write_only=True, error_messages={"required": "password is required."}
