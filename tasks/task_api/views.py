@@ -35,7 +35,7 @@ class SignUpView(APIView):
             username = serializer.validated_data['username'] # type: ignore
             email = serializer.validated_data['email'] # type: ignore
             password = serializer.validated_data['password'] # type: ignore
-            if not username or not email or not password:
+            if not username and not email and not password:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             serializer.save()
             # if not request.data.get('email') or not request.data.get('username'):
