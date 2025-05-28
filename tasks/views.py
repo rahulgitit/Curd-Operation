@@ -79,7 +79,8 @@ def task_update(request, pk):
 
 # @login_required
 def task_delete(request, pk):
-    task = get_object_or_404(Task, pk=pk, user=request.user)
+    # task = get_object_or_404(Task, pk=pk, user=request.user)
+    task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':
         task.delete()
         messages.success(request, 'Task deleted successfully!')
