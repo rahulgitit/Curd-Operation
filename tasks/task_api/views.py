@@ -77,6 +77,7 @@ def logoutView(request):
     return Response("you are logout!!")
 
 # API ViewSet
+@method_decorator(csrf_exempt, name='dispatch')
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
