@@ -29,7 +29,7 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
 class SignUpView(APIView):
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         serializer = SignUpSerializer(data=request.data)
         if serializer.is_valid():
             username = serializer.validated_data['username'] # type: ignore
@@ -38,11 +38,6 @@ class SignUpView(APIView):
             if not username and not email and not password:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             serializer.save()
-            # if not request.data.get('email') or not request.data.get('username'):
-            #     return Response(
-            #         {'error': 'Email and username are required'},
-            #         status=status.HTTP_400_BAD_REQUEST
-            #     )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -50,7 +45,7 @@ class SignUpView(APIView):
         
 @method_decorator(csrf_exempt, name='dispatch')
 class LoginView(APIView):
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
             username = serializer.validated_data['username'] # type: ignore
