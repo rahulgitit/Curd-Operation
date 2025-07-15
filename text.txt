@@ -1,0 +1,69 @@
+# Update package lists
+sudo apt update
+
+# Upgrade installed packages
+sudo apt upgrade -y
+
+sudo apt install python3-pip
+mkdir myproject
+cd myproject/
+sudo apt install python3-venv
+source vevn/bin/activate
+ls
+git clone
+ls
+cd Curd-Operation
+pip install -r requirements.txt
+ls
+
+#is command se hum file ke ander edit kar sakte hai
+python manage.py migrate 
+python manage.py runserver 0.0.0.0:8000
+
+
+# Install essential tools
+sudo apt install -y git curl unzip
+
+# Install web server (example: nginx)
+sudo apt install -y nginx
+
+# Install database (example: MySQL)
+sudo apt install -y mysql-server
+
+# Install language runtime (example: Node.js)
+sudo apt install -y nodejs npm
+
+# Clone your project repository
+git clone <your-repo-url>
+
+# Change directory to your project
+cd <your-project-directory>
+
+# Install project dependencies (example: Node.js)
+npm install
+
+# Set up environment variables (edit as needed)
+nano .env
+
+# Run database migrations (if any)
+# Example for Node.js with Sequelize:
+npx sequelize db:migrate
+
+# Start your application (example: Node.js)
+npm start
+
+# Configure firewall (optional)
+sudo ufw allow 'Nginx Full'
+sudo ufw allow OpenSSH
+sudo ufw enable
+
+# Check service status
+sudo systemctl status nginx
+sudo systemctl status mysql
+
+# Set up SSL (optional, using Certbot)
+sudo apt install -y certbot python3-certbot-nginx
+sudo certbot --nginx
+
+# Monitor logs
+tail -f /var/log/nginx/error.log
